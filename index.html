@@ -51,7 +51,7 @@
     d3.csv('tweets_with_location_database.csv', function(error, rows) {     
       i = 1;
 
-      var svg2 = d3.select("body").append("svg").append("g")
+      var svg2 = d3.select("body").append("svg")
         .attr("id","locations")
             .attr("width", width)
             .attr("height", height);
@@ -61,7 +61,7 @@
         console.log(d);
 
         var circles = svg2.selectAll("circle")
-          .data(function(d) { return d.hashtags; })
+          .data(d)
           .enter()
           .append("circle")
           .attr("cx", 30)
