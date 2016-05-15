@@ -54,13 +54,14 @@
 
       rows.forEach(function(d){
 
-        var circles = svg2
-          .append("circle")
+        svg2
+          .selectAll("circle")
           .data(d)
           .enter()
+          .append("circle")
           .attr("cx", 30)
           .attr("cy", 30)
-          .attr("r", "8")
+          .attr("r", 8)
           .attr("fill", "red");
       });
 
