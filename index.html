@@ -51,12 +51,13 @@
     d3.csv('tweets_with_location_database.csv', function(error, rows) {     
       i = 1;
 
+      var svg2 = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
       rows.forEach(function(d){
 
-        d3.select("body")append("svg")
-          .attr("width", width)
-          .attr("height", height);
-          .selectAll("circle")
+        var circles = svg2.selectAll("circle")
           .data(function(d) { return d.hashtags; })
           .enter()
           .append("circle")
