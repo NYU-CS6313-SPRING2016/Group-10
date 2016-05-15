@@ -31,6 +31,7 @@
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="http://d3js.org/topojson.v1.min.js"></script>
   <script src="nyc.geojson"></script>
+  <script src=""></script>
   <script>
 
     var width = 960,
@@ -39,6 +40,16 @@
     var svg = d3.select("body").append("svg")
       .attr("width", width)
       .attr("height", height);
+
+    d3.csv('tweets_with_location_database.csv', function(error, rows) {
+      var obj = {};
+      i = 1;
+      rows.forEach(function(d){
+        obj[i] = [d.tweet, d.hashtags, d.user_location, d.user_id, d.id];
+        i++;
+      });
+      console.log(obj);
+    });
 
     d3.json("nyc.geojson", function(error, nyb) {
 
@@ -49,35 +60,35 @@
               .scale(50000)
               .translate([(width) / 2, (height)/2]);
 
-    var path = d3.geo.path()
-        .projection(projection);
+      var path = d3.geo.path()
+          .projection(projection);
 
-    var tooltip = d3.select('body').append('div')
-              .attr('class', 'hidden tooltip');
+      var tooltip = d3.select('body').append('div')
+                .attr('class', 'hidden tooltip');
 
-    var g = svg.append("g");
+      var g = svg.append("g");
 
-    g.append("g")
-      .attr("id", "boroughs")
-      .selectAll(".state")
-      .data(nyb.features)
-      .enter().append("path")
-      .attr("class", function(d){ return d.properties.name; })
-      .attr("d", path)
-      .on('mousemove', function(d) {
-          var mouse = d3.mouse(svg.node()).map(function(d) {
-              return parseInt(d);
-          });
-          tooltip.classed('hidden', false)
-              .attr('style', 'left:' + (mouse[0] + 15) +
-                      'px; top:' + (mouse[1] - 5) + 'px')
-              .html(d.properties.PO_NAME + "</br>" + d.properties.borough);
-      })
-      .on('mouseout', function() {
-          tooltip.classed('hidden', true)
-      })
-      .style("fill","#ccc")
-      .attr("stroke", "black");
+      g.append("g")
+        .attr("id", "boroughs")
+        .selectAll(".state")
+        .data(nyb.features)
+        .enter().append("path")
+        .attr("class", function(d){ return d.properties.name; })
+        .attr("d", path)
+        .on('mousemove', function(d) {
+            var mouse = d3.mouse(svg.node()).map(function(d) {
+                return parseInt(d);
+            });
+            tooltip.classed('hidden', false)
+                .attr('style', 'left:' + (mouse[0] + 15) +
+                        'px; top:' + (mouse[1] - 5) + 'px')
+                .html(d.properties.PO_NAME + "</br>" + d.properties.borough);
+        })
+        .on('mouseout', function() {
+            tooltip.classed('hidden', true)
+        })
+        .style("fill","#ccc")
+        .attr("stroke", "black");
 
     });
 
