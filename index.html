@@ -31,7 +31,6 @@
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="http://d3js.org/topojson.v1.min.js"></script>
   <script src="nyc.geojson"></script>
-  <script src=""></script>
   <script>
 
     var width = 960,
@@ -90,27 +89,13 @@
 
     });
 
-    d3.csv('tweets_with_location_database.csv', function(error, rows) {     
-
-      // var svg = d3.select("body").append("svg")
-      //   .attr("id","locations")
-      //       .attr("width", width)
-      //       .attr("height", height);
-
-      rows.forEach(function(d){
-
-        var circles = svg
-          .selectAll("circle")
-          .data(d)
-          .enter()
-          .append("circle")
-          .attr("cx", 30)
-          .attr("cy", 30)
-          .attr("r", 8)
-          .attr("fill", "red");
-      });
-
-    });
+    svg.selectAll("circle")
+    .data("Empire").enter()
+    .append("circle")
+    .attr("cx", brooklyn[0])
+    .attr("cy", brooklyn[1])
+    .attr("r", 8)
+    .attr("fill", "red")
 
   </script>
 </html>
