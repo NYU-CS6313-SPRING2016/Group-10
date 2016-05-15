@@ -47,7 +47,8 @@
     .enter().append("path")
     .attr("class", function(d){ return d.properties.name; })
     .attr("d", path)
-    .attr("fill","#ccc");
+    .style("fill","#ccc")
+    .attr("stroke", "black");
   });
 
 
