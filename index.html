@@ -37,12 +37,12 @@
      height = 500;
 
         //cordinates
-    var bronx = [40.8448, 73.8648];
-    var manhattan = [40.7831, 73.9712];
-    var queens = [40.7282, 73.7949];
-    var brooklyn = [40.6782, 73.9442]; 
-    var harlem = [40.8116, 73.9465];
-    var ny = [40.7128,74.0059];
+    var bronx = [40.8448, -73.8648];
+    var manhattan = [40.7831, -73.9712];
+    var queens = [40.7282, -73.7949];
+    var brooklyn = [40.6782, -73.9442]; 
+    var harlem = [40.8116, -73.9465];
+    var ny = [40.7128,-74.0059];
 
     var svg = d3.select("body").append("svg")
       .attr("width", width)
@@ -92,8 +92,8 @@
     svg.selectAll("circle")
     .data("Empire").enter()
     .append("circle")
-    .attr("cx", projection(-brooklyn[0]))
-    .attr("cy", projection(brooklyn[1]))
+    .attr("cx", brooklyn[1])
+    .attr("cy", brooklyn[0])
     .attr("r", 8)
     .attr("fill", "red");
 
