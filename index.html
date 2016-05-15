@@ -58,12 +58,14 @@
 
       rows.forEach(function(d){
 
+        console.log(d);
+
         var circles = svg2.selectAll("circle")
           .data(function(d) { return d.hashtags; })
           .enter()
           .append("circle")
-          .attr("cx", function (d) { return d.user_location; })
-          .attr("cy", function (d) { return d.user_location; })
+          .attr("cx", function (d) { return 30; })
+          .attr("cy", function (d) { return 30; })
           .attr("r", "8px")
           .attr("fill", "red");
       });
