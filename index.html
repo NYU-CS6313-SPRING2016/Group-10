@@ -92,10 +92,10 @@
     svg.selectAll("circle")
     .data("Empire").enter()
     .append("circle")
-    .attr("cx", projection(brooklyn[1]))
-    .attr("cy", projection(brooklyn[0]))
+    .attr("cx", projection(-brooklyn[0]))
+    .attr("cy", projection(brooklyn[1]))
     .attr("r", 8)
-    .attr("fill", "red")
+    .attr("fill", "red");
 
   </script>
 </html>
