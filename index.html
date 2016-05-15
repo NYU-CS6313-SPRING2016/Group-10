@@ -41,15 +41,35 @@
       .attr("width", width)
       .attr("height", height);
 
-    d3.csv('tweets_with_location_database.csv', function(error, rows) {
-      var obj = {};
+    //cordinates
+    var bronx = [40.8448, 73.8648];
+    var manhattan = [40.7831, 73.9712];
+    var queens = [40.7282, 73.7949];
+    var brooklin = [40.6782, 73.9442]; 
+    var harlem = [40.8116, 73.9465];
+
+    d3.csv('tweets_with_location_database.csv', function(error, rows) {     
       i = 1;
+
+      var svg2 = d3.select("body").append("svg").append("g")
+        .attr("id","locations")
+            .attr("width", width)
+            .attr("height", height);
+
       rows.forEach(function(d){
-        obj[i] = [d.tweet, d.hashtags, d.user_location, d.user_id, d.id];
-        i++;
+
+        var circles = svg2.selectAll("circle")
+          .data(function(d) { return d.hashtags; })
+          .enter()
+          .append("circle")
+          .attr("cx", function (d) { return d.user_location; })
+          .attr("cy", function (d) { return d.user_location; })
+          .attr("r", "8px")
+          .attr("fill", "red");
       });
-      console.log(obj);
+
     });
+
 
     d3.json("nyc.geojson", function(error, nyb) {
 
@@ -90,6 +110,10 @@
         .style("fill","#ccc")
         .attr("stroke", "black");
 
+      
+
+      
+    
     });
 
   </script>
