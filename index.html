@@ -46,7 +46,6 @@
     var ny = [40.7128,74.0059];
 
     d3.csv('tweets_with_location_database.csv', function(error, rows) {     
-      i = 1;
 
       var svg2 = d3.select("body").append("svg")
         .attr("id","locations")
@@ -55,13 +54,13 @@
 
       rows.forEach(function(d){
 
-        var circles = svg2.selectAll("circle")
+        var circles = svg2
+          .append("circle")
           .data(d)
           .enter()
-          .append("circle")
           .attr("cx", 30)
           .attr("cy", 30)
-          .attr("r", "8px")
+          .attr("r", "8")
           .attr("fill", "red");
       });
 
