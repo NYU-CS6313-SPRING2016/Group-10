@@ -51,8 +51,40 @@
           .data(d)
           .enter()
           .append("circle")
-          .attr("cx", 30)
-          .attr("cy", 30)
+          .attr("cx", function(d) { 
+            if(d.user_location == "Bronx"){
+              return bronx[0];
+            }
+            if(user_location == "manhattan"){
+              return manhattan[0];
+            }
+            if(user_location == "brooklin"){
+              return brooklin[0];
+            }
+            if(user_location == "queens"){
+              return queens[0];
+            }
+            if(user_location == "harlem"){
+              return harlem[0];
+            }
+          })
+          .attr("cy", function(d) { 
+            if(d.user_location == "Bronx"){
+              return bronx[1];
+            }
+            if(user_location == "manhattan"){
+              return manhattan[1];
+            }
+            if(user_location == "brooklin"){
+              return brooklin[1];
+            }
+            if(user_location == "queens"){
+              return queens[1];
+            }
+            if(user_location == "harlem"){
+              return harlem[1];
+            }
+          })
           .attr("r", "8px")
           .attr("fill", "red");
       });
