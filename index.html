@@ -64,8 +64,6 @@
       .enter().append("path")
       .attr("class", function(d){ return d.properties.name; })
       .attr("d", path)
-      .style("fill","#ccc")
-      .attr("stroke", "black")
       .on('mousemove', function(d) {
           var mouse = d3.mouse(svg.node()).map(function(d) {
               return parseInt(d);
@@ -76,8 +74,11 @@
               .html(d.properties.NAME);
       })
       .on('mouseout', function() {
-          tooltip.classed('hidden', true);
-      });
+          tooltip.classed('hidden', true)
+      })
+      .style("fill","#ccc")
+      .attr("stroke", "black");
+
     });
 
   </script>
