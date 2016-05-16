@@ -89,7 +89,8 @@
         .attr("stroke", "black");
 
       // add circles to svg
-      g.select("g").selectAll("circle")
+      g.select("#boroughs")
+        .selectAll("circle")
         .data([brooklyn[0],brooklyn[1]]).enter()
         .append("circle")
         .attr("cx", brooklyn[0])
