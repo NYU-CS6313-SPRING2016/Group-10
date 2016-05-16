@@ -89,7 +89,7 @@
         .attr("stroke", "black");
 
         // add circles to svg
-      svg.selectAll("circle")
+      g.selectAll("circle")
         .data([brooklyn[0],brooklyn[1]]).enter()
         .append("circle")
         .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
