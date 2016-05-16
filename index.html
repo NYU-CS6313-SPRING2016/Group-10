@@ -63,7 +63,7 @@
       var tooltip = d3.select('body').append('div')
                 .attr('class', 'hidden tooltip');
 
-      var g = svg.append("g");
+      var g = svg.append("g").attr("id","map");
 
       g.append("g")
         .attr("id", "boroughs")
@@ -89,7 +89,7 @@
         .attr("stroke", "black");
 
       // add circles to svg
-      var dots = svg
+      var dots = g.select("#map")
         .selectAll("circle")
         .data([brooklyn[0],brooklyn[1]]).enter()
         .append("circle")
