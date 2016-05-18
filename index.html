@@ -134,9 +134,10 @@
       d3.select(".chart")
         .selectAll("div")
           .data(dataset)
-        .enter().append("div")
+          .enter()
+          .append("div")
           .style("width", function(d) { return x(d.countof) + "px"; })
-          .text(function(d) { return d.countof; });
+          .text(function(d) { return d.regexp_split_to_table; });
 
       dataset.forEach(function(d){
         var dots = d3.select("#map")
