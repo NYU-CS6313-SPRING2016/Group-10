@@ -133,6 +133,8 @@
         count_of.push(d.countof);
       });
 
+      console.log(countof);
+
       var x = d3.scale.linear()
           .domain([d3.min(count_of), d3.max(count_of)])
           .range([0, 100]);
@@ -146,14 +148,14 @@
           .text(function(d) { return d.regexp_split_to_table; });
 
       dataset.forEach(function(d){
-        var dots = d3.select("#map")
-        .selectAll("circle")
-        .data(d).enter()
-        .append("circle")
-        .attr("cx", function (d) { return projection(d)[0]; })
-        .attr("cy", function (d) { return projection(d)[1]; })
-        .attr("r", 8)
-        .attr("fill", "blue");
+        var dots2 = d3.select("#map")
+          .selectAll("circle")
+          .data(d).enter()
+          .append("circle")
+          .attr("cx", function (d) { return projection(d)[0]; })
+          .attr("cy", function (d) { return projection(d)[1]; })
+          .attr("r", 8)
+          .attr("fill", "blue");
       });
 
     });
