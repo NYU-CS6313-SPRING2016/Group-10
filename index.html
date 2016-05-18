@@ -66,9 +66,11 @@
 
     d3.csv("hashtags_by_place.csv",function(error, dataset){
 
+      console.log(dataset[0]);
+
       dataset.forEach(function(d) {
         d.user_location = +d.user_location;
-        d.hashtag = +d.hashtag;
+        d.hashtag = +d.regexp_split_to_table;
         d.count = +d.countof;
       });
 
