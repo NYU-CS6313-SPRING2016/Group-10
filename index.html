@@ -127,8 +127,8 @@
         .selectAll("div")
           .data(dataset)
         .enter().append("div")
-          .style("width", function(d) { return x(d.count) + "px"; })
-          .text(function(d) { return d.count; });
+          .style("width", function(d) { return x(d.countof) + "px"; })
+          .text(function(d) { return d.countof; });
 
       dataset.forEach(function(d){
         var dots = d3.select("#map")
