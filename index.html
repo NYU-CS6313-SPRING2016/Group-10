@@ -128,8 +128,8 @@
       console.log(dataset[0]);
 
       var x = d3.scale.linear()
-          .domain([0, d3.max(dataset)])
-          .range([0, 420]);
+          .domain([0, d3.max(dataset.countof)])
+          .range([0, 300]);
 
       d3.select(".chart")
         .selectAll("div")
