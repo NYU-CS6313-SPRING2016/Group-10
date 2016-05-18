@@ -36,6 +36,7 @@
     </div>
     <div class="right-panel">
       <h2>What are the trends?</h2>
+      <div class="chart"></div>
     </div>
   </body>
 
@@ -62,17 +63,6 @@
     var svg = d3.select(".left-panel").append("svg")
       .attr("width", width)
       .attr("height", height);
-
-
-    d3.csv("hashtags_by_place.csv",function(error, dataset){
-
-      console.log(dataset[0]);
-
-      dataset.forEach(function(d){
-        console.log(d);
-      });
-
-    });
 
 
     d3.json("nyc.geojson", function(error, nyb) {
@@ -122,6 +112,34 @@
         .attr("cy", function (d) { return projection(d)[1]; })
         .attr("r", 8)
         .attr("fill", "red");
+
+    });
+
+    d3.csv("hashtags_by_place.csv",function(error, dataset){
+
+      console.log(dataset[0]);
+
+      var x = d3.scale.linear()
+          .domain([0, d3.max(dataset)])
+          .range([0, 420]);
+
+      d3.select(".chart")
+        .selectAll("div")
+          .data(dataset)
+        .enter().append("div")
+          .style("width", function(d.count) { return x(d.count) + "px"; })
+          .text(function(d.count) { return d.count; });
+
+      dataset.forEach(function(d){
+        var dots = d3.select("#map")
+        .selectAll("circle")
+        .data(d).enter()
+        .append("circle")
+        .attr("cx", function (d) { return projection(d)[0]; })
+        .attr("cy", function (d) { return projection(d)[1]; })
+        .attr("r", 8)
+        .attr("fill", "blue");
+      });
 
     });
   </script>
