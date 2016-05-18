@@ -64,14 +64,15 @@
       .attr("height", height);
 
 
-    d3.csv("hashtags_by_place.csv",function(data){
+    d3.csv("hashtags_by_place.csv",function(error, dataset){
 
-      var headerRow = Object.keys(data[0]);
-      console.log(headerRow);
+      dataset.forEach(function(d) {
+        d.user_location = +d.user_location;
+        d.hashtag = +d.hashtag;
+      });
+      
+      console.log(dataset[0]);
 
-      data.map(function(d) { 
-        console.log(d);
-      } );
     });
 
 
