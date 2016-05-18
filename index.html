@@ -68,17 +68,9 @@
 
       console.log(dataset[0]);
 
-      dataset.forEach(function(d) {
-        d.user_location = +d.user_location;
-        d.hashtag = +d.regexp_split_to_table;
-        d.count = +d.countof;
+      dataset.forEach(function(d){
+        console.log(d);
       });
-
-      console.log(dataset[0]);
-
-      var rows = d3.csv.parseRows(dataset);
-
-      console.log(rows);
 
     });
 
