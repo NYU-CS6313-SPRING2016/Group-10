@@ -127,13 +127,15 @@
 
       console.log(dataset[0]);
 
-      var max = d3.max(dataset, function(d) { return d.countof; });
+      var count_of = [];
 
-      console.log(max);
+      dataset.forEach(function(d){
+        count_of.push(d.countof);
+      });
 
       var x = d3.scale.linear()
-          .domain([0, 100])
-          .range([0, max]);
+          .domain([d3.min(count_of), d3.max(count_of)])
+          .range([0, 100]);
 
       d3.select(".chart")
         .selectAll("div")
