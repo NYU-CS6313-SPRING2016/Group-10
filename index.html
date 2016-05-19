@@ -178,8 +178,8 @@
       d3.selectAll("circle").on('click',function(){
           var this_color = d3.select(this).style("background-color");
           console.log(this);
-          d3.selectAll(".chart div").attr("background-color","gray");
-          d3.select("#bar_id_0").attr("background-color",this_color);
+          d3.selectAll(".chart div").style("background-color","gray");
+          d3.select("#bar_id_0").style("background-color",this_color);
           d3.select("#bar_id_0").style("border","2px solid black");
         })
         
