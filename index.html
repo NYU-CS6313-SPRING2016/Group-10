@@ -128,9 +128,7 @@
 
     d3.csv("hashtags_by_place.csv",function(error, dataset){
 
-      console.log(dataset[0]);
-
-      var count_of = [];
+      var count_of, hashtag_array = [];
 
       dataset.forEach(function(d){
         count_of.push(d.countof);
