@@ -171,7 +171,7 @@
         .attr("cy", function (d) { return projection(d)[1]; })
         .attr("r", function(d, i){ if(i == 0){ return 22; }else {return (19+i)/i;} })
         .attr("fill", function(d,i){ return colors_google(i); })
-        .attr("id",function(d,i){return "circle_"+i; })
+        .attr("id", function(d,i){ return "circle_"+i; })
         .append("svg:title")
         .text( function(d,i) { return hashtag_array[i]; } );
 
@@ -179,6 +179,7 @@
       d3.selectAll("circle").on('click',function(){
           var this_color = d3.select(this).style("fill");
           console.log(this);
+          console.log(d3.select(this).attr("id"));
           d3.selectAll(".chart div").style("background-color","#d9d9d9");
           d3.select("#bar_id_0").style("background-color",this_color);
           d3.select("#bar_id_0").style("border","2px solid black");
