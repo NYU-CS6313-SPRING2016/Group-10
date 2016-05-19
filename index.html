@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="tipsy.css" rel="stylesheet" type="text/css" />
     <style>
       body{
         text-align: center;
@@ -59,6 +60,7 @@
   <script src="http://d3js.org/topojson.v1.min.js"></script>
   <script src="nyc.geojson"></script>
   <script src="http://bl.ocks.org/mbostock/raw/4090846/us.json"></script>
+  <script type="text/javascript" src="jquery.tipsy.js"></script>
   <script>
 
     var width = 700,
@@ -102,16 +104,6 @@
       dataset.forEach(function(d){
         hashtag_array.push(d.regexp_split_to_table);
       });
-
-      for(i = 0; i<=9; i++){
-        the_tooltip = d3.select("#tooltip")
-          .append("div")
-          .attr("id","tooltip_"+i)
-          .style("position", "absolute")
-          .style("z-index", "10")
-          .style("visibility", "hidden")
-          .text(hashtag_array[i]);
-      }
 
       var linearScale = d3.scale.linear()
           .domain([d3.min(count_of), d3.max(count_of)])
@@ -179,6 +171,15 @@
         .attr("fill", function(d,i){ return colors_google(i); })
         .append("svg:title")
         .text(function(d,i) { return hashtag_array[i]; });
+
+      $('svg circle').tipsy({ 
+        gravity: 'w', 
+        html: true, 
+        title: function() {
+          var d = this.__data__, label = hashtag_array(d.i);
+          return label; 
+        }
+      });
 
       });    
   </script>
