@@ -1,19 +1,13 @@
 user_location,regexp_split_to_table,countof
-"New York, NY",Job,4436
-"New York, NY",Hiring,3987
-"New York, NY",CareerArc,2777
+"New York, NY",Job,5866
+"New York, NY",Hiring,4995
+"New York, NY",CareerArc,3559
 "New York, NY",NewYork,2168
 "New York, NY",Jobs,2109
-New York,Hiring,1008
-New York,CareerArc,782
-New York,Job,746
 New York,Jobs,685
-New York,job,684
 "New York, NY",Hospitality,546
 "New York, NY",Retail,537
-"Rochester, NY",Rochester,505
 "New York, NY",NEWYORK,468
-New York City & New Jersey,traffic,410
 "New York, NY",Sales,408
 "New York, NY",nyc,396
 New York,Retail,379
@@ -128,7 +122,6 @@ New York State,I95,91
 Catskills,TaconicStateParkway,90
 En donde este Florcita,EEESConFlorVigna,90
 New York,DropOutHillary,89
-"Los Angeles, CA",hiring,89
 New York City & New Jersey,Queens,89
 "Seaside Heights,NJ ,USA",seasideheights,89
 "New York, NY",Manhattan,89
@@ -136,7 +129,6 @@ New York City & New Jersey,Queens,89
 New York State,I495,89
 www.facebook.com/Randirobics,Parents,88
 Manhattan (and airplanes),contemporaryart,87
-"Charlotte, NC",NewYorkCity,87
 Dominican Republic,CapitalPorMásDanilo,86
 Dominican Republic,CapitalPorMásPLD,86
 NYC,NYCLife,85
@@ -162,9 +154,7 @@ New York Non-Metro,Job,77
 New York State,I90NYSThruway,77
 New York City,I678,76
 New York City,GeorgeWashingtonBridge,76
-"Menlo Park, CA",Jobs,75
 New York City,LLine,75
-"Menlo Park, CA",Accountemps,74
 "New York, NY",happymothersday,74
 New York Non-Metro,Jobs,74
 38-13 Bell Blvd Bayside NY ,sale,73
@@ -194,7 +184,6 @@ NYC,tvwriting,66
 "Seaside Heights,NJ ,USA",NeverTrump,66
 "New Jersey, USA",TeamTylerAndKorey,65
 "Newark, NJ",CareerArc,65
-"Menlo Park, CA",NEWYORK,65
 "Greenwich, CT",Healthcare,64
 NYC,filmmaking,64
 New Jersey,Retail,63
