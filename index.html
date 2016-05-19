@@ -173,7 +173,7 @@
         .attr("fill", function(d,i){ return colors_google(i); })
         .attr("id", function(d,i){ return "circle_"+i; })
         .append("svg:title")
-        .text( function(d,i) { return hashtag_array[i]; } );
+        .text(function(d,i){ return hashtag_array[i]; });
 
 
       d3.selectAll("circle").on('click',function(){
