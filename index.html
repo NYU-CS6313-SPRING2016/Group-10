@@ -132,7 +132,6 @@
       var hashtag_array = new Array;
 
       dataset.forEach(function(d){
-        console.log(d.countof);
         count_of.push(d.countof);
       });
 
@@ -164,7 +163,7 @@
         //   return d;
         // })
         .style("height", function(d) {
-            var barHeight = d / 10;
+            var barHeight = d / 2;
             return barHeight + "px";
         });
 
