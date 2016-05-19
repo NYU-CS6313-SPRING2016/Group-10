@@ -143,35 +143,33 @@
         hashtag_array.push(d.regexp_split_to_table);
       });
 
-      console.log(count_of);
+      console.log(d3.min(count_of));
+      console.log(d3.max(count_of));
 
-      // console.log(d3.min(count_of));
-      // console.log(d3.max(count_of));
+      var linearScale = d3.scale.linear()
+          .domain([d3.min(count_of), d3.max(count_of)])
+          .range([0, 100]);
 
-      // var linearScale = d3.scale.linear()
-      //     .domain([d3.min(count_of), d3.max(count_of)])
-      //     .range([0, 100]);
+      d3.select(".chart")
+        .selectAll("div")
+          .data(dataset)
+          .enter()
+          .append("div")
+          .style("width", function(d) { return linearScale(parseInt(d.countof)) + "px"; })
+          .text(function(d) { return d.regexp_split_to_table; });
 
-      // d3.select(".chart")
-      //   .selectAll("div")
-      //     .data(dataset)
-      //     .enter()
-      //     .append("div")
-      //     .style("width", function(d) { return linearScale(d.countof) + "px"; })
-      //     .text(function(d) { return d.regexp_split_to_table; });
-
-      d3.select("body").select(".chart")
-        .data(count_of)
-        .enter()
-        .append("div")
-        .attr("class", "bar")
-        // .text(function(d) {
-        //   return d;
-        // })
-        .style("height", function(d) {
-            var barHeight = d / 2;
-            return barHeight + "px";
-        });
+      // d3.select("body").select(".chart")
+      //   .data(count_of)
+      //   .enter()
+      //   .append("div")
+      //   .attr("class", "bar")
+      //   // .text(function(d) {
+      //   //   return d;
+      //   // })
+      //   .style("height", function(d) {
+      //       var barHeight = d / 2;
+      //       return barHeight + "px";
+      //   });
 
       dataset.forEach(function(d){
         var dots2 = d3.select("#map")
