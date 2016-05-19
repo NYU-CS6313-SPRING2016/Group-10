@@ -136,6 +136,10 @@
         count_of.push(d.countof);
       });
 
+      dataset.forEach(function(d){
+        hashtag_array.push(d.regexp_split_to_table);
+      });
+
       console.log(d3.min(count_of));
       console.log(d3.max(count_of));
 
@@ -156,8 +160,11 @@
         .enter()
         .append("div")
         .attr("class", "bar")
+        // .text(function(d) {
+        //   return d;
+        // })
         .style("height", function(d) {
-            var barHeight = d * 5;
+            var barHeight = d / 10;
             return barHeight + "px";
         });
 
