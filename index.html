@@ -122,7 +122,7 @@
         .attr("cx", function (d) { return projection(d)[0]; })
         .attr("cy", function (d) { return projection(d)[1]; })
         .attr("r", 8)
-        .attr("fill", function(d,i){ console.log(i); if(i<=5){return color(i); }}else{ return "gray"; });
+        .attr("fill", function(d,i){ console.log(i); return color(i); });
 
     });
 
