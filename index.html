@@ -27,7 +27,6 @@
       }
       .chart div {
         font: 14px sans-serif;
-        background-color: steelblue;
         text-align: right;
         padding: 3px;
         margin: 1px;
@@ -157,7 +156,7 @@
           .append("div")
           .style("width", function(d) { return linearScale(parseInt(d.countof)) + "px"; })
           .text(function(d) { return d.regexp_split_to_table + " - " + d.countof; })
-          .attr("fill", color);
+          .style("background-color", color);
 
     });
   </script>
