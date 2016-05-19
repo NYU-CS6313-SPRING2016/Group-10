@@ -88,6 +88,7 @@
       .attr("width", width)
       .attr("height", height);
 
+    //bar chart and tooltips
     d3.csv("hashtags_by_place.csv",function(error, dataset){
 
       var count_of = new Array;
@@ -104,6 +105,7 @@
       for(i = 0; i<=9; i++){
         the_tooltip = d3.select("#tooltip")
           .append("div")
+          .attr("id","tooltip_"+i)
           .style("position", "absolute")
           .style("z-index", "10")
           .style("visibility", "hidden")
@@ -174,14 +176,9 @@
         .attr("cy", function (d) { return projection(d)[1]; })
         .attr("r", function(d, i){ if(i == 0){ return 22; }else {return (19+i)/i;} })
         .attr("fill", function(d,i){ return colors_google(i); })
-        .on("mouseover", function(){return the_tooltip.style("visibility", "visible");})
-        .on("mousemove", function(){return the_tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-        .on("mouseout", function(){return the_tooltip.style("visibility", "hidden");});
-    });
+        .append("svg:title")
+        .text(function(d) { return d.regexp_split_to_table; });
 
-
-    //bar chart
-
-    
+      });    
   </script>
 </html>
