@@ -155,7 +155,7 @@
           .enter()
           .append("div")
           .style("width", function(d) { return linearScale(parseInt(d.countof)) + "px"; })
-          .text(function(d) { return d.regexp_split_to_table; });
+          .text(function(d) { return d.regexp_split_to_table + "-" + d.countof; });
 
       dataset.forEach(function(d){
         var dots2 = d3.select("#map")
