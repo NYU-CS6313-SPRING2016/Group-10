@@ -2,25 +2,21 @@ user_location,regexp_split_to_table,countof
 "New York, NY",Job,5866
 "New York, NY",Hiring,4995
 "New York, NY",CareerArc,3559
+"New York, NY",Jobs,2794
 "New York, NY",NewYork,2168
-"New York, NY",Jobs,2109
-New York,Jobs,685
+"New York, NY",Retail,916
 "New York, NY",Hospitality,546
-"New York, NY",Retail,537
 "New York, NY",NEWYORK,468
 "New York, NY",Sales,408
 "New York, NY",nyc,396
-New York,Retail,379
 "New York, USA",GOP,372
 "New York, USA",MakeAmericaGreatAgain,371
 "New York, NY",NewYorkCity,367
 "New York, NY",Veterans,357
-"Rochester, NY",Hiring,357
 NEW YORK,NBLSetarehVoto,352
 "New York, USA",Trump2016,334
 "Nassau County, NY",Job,320
 "Wall St, NYC",Quant,317
-"Albany, NY",Hiring,313
 "New York, USA",money,313
 "Nassau County, NY",Jobs,312
 "New York, NY",Healthcare,306
@@ -29,7 +25,6 @@ New York,NY,305
 "Rochester, NY",Job,270
 "Nassau County, NY",job,266
 "New York, NY",IT,261
-"Los Angeles, CA",job,256
 "Rochester, NY",Jobs,256
 New York,hiring,253
 "New York, NY",Bronx,250
@@ -170,7 +165,6 @@ New York City,FLine,72
 NEW YORK,NBLLigiaVoto,70
 New York,Melville,70
 New York,newyork,70
-www.facebook.com/Randirobics,Randirobics,70
 "Charlotte, NC",Hiring,69
 "New York, NY",Engineering,69
 "Brooklyn, NY",FeelTheBern,69
