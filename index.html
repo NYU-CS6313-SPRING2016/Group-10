@@ -88,6 +88,43 @@
       .attr("width", width)
       .attr("height", height);
 
+    d3.csv("hashtags_by_place.csv",function(error, dataset){
+
+      var count_of = new Array;
+      var hashtag_array = new Array;
+
+      dataset.forEach(function(d){
+        count_of.push(parseInt(d.countof));
+      });
+
+      dataset.forEach(function(d){
+        hashtag_array.push(d.regexp_split_to_table);
+      });
+
+      for(i = 0; i<=9; i++){
+        the_tooltip = d3.select("#tooltip")
+          .append("div")
+          .style("position", "absolute")
+          .style("z-index", "10")
+          .style("visibility", "hidden")
+          .text(hashtag_array[i]);
+      }
+
+      var linearScale = d3.scale.linear()
+          .domain([d3.min(count_of), d3.max(count_of)])
+          .range([0, 300]);
+
+      d3.select(".chart")
+        .selectAll("div")
+          .data(dataset)
+          .enter()
+          .append("div")
+          .style("width", function(d) { return linearScale(parseInt(d.countof)) + "px"; })
+          .text(function(d) { return d.regexp_split_to_table + " - " + d.countof; })
+          .style("background-color", function(d,j){ if(j <= 9){ return colors_google(j); }else{ return "#d9d9d9" }});
+
+    });
+
 
     d3.json("nyc.geojson", function(error, nyb) {
 
@@ -127,6 +164,7 @@
         .style("fill","#ccc")
         .attr("stroke", "black");
 
+
       // add circles to svg
       var dots = d3.select("#map")
         .selectAll("circle")
@@ -136,49 +174,14 @@
         .attr("cy", function (d) { return projection(d)[1]; })
         .attr("r", function(d, i){ if(i == 0){ return 22; }else {return (19+i)/i;} })
         .attr("fill", function(d,i){ return colors_google(i); })
-        .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-        .on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-        .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+        .on("mouseover", function(){return the_tooltip.style("visibility", "visible");})
+        .on("mousemove", function(){return the_tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+        .on("mouseout", function(){return the_tooltip.style("visibility", "hidden");});
     });
 
 
     //bar chart
 
-    d3.csv("hashtags_by_place.csv",function(error, dataset){
-
-      var count_of = new Array;
-      var hashtag_array = new Array;
-
-      dataset.forEach(function(d){
-        count_of.push(parseInt(d.countof));
-      });
-
-      dataset.forEach(function(d){
-        hashtag_array.push(d.regexp_split_to_table);
-      });
-
-      for(i = 0; i<=9; i++){
-        var tooltip = d3.select("#tooltip")
-          .append("div")
-          .style("position", "absolute")
-          .style("z-index", "10")
-          .style("visibility", "hidden")
-          .text(hashtag_array[i]);
-      }
-
-      var linearScale = d3.scale.linear()
-          .domain([d3.min(count_of), d3.max(count_of)])
-          .range([0, 300]);
-
-      d3.select(".chart")
-        .selectAll("div")
-          .data(dataset)
-          .enter()
-          .append("div")
-          .style("width", function(d) { return linearScale(parseInt(d.countof)) + "px"; })
-          .text(function(d) { return d.regexp_split_to_table + " - " + d.countof; })
-          .style("background-color", function(d,j){ if(j <= 9){ return colors_google(j); }else{ return "#d9d9d9" }});
-
-    });
+    
   </script>
 </html>
