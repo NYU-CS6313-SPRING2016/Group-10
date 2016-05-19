@@ -134,6 +134,8 @@
       var count_of = new Array;
       var hashtag_array = new Array;
 
+      var color = d3.scale.category20c();
+
       dataset.forEach(function(d){
         count_of.push(parseInt(d.countof));
       });
@@ -165,7 +167,7 @@
           .attr("cx", function (d) { return projection(d)[0]; })
           .attr("cy", function (d) { return projection(d)[1]; })
           .attr("r", 8)
-          .attr("fill", "blue");
+          .attr("fill", color);
       });
 
     });
