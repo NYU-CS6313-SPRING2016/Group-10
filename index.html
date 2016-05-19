@@ -25,16 +25,12 @@
         text-align: center;
       }
       .chart div {
-        font: 10px sans-serif;
+        font: 14px sans-serif;
         background-color: steelblue;
         text-align: right;
         padding: 3px;
         margin: 1px;
         color: black;
-      }
-      .bar{
-        background-color: steelblue;
-        color: white;
       }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -157,20 +153,7 @@
           .append("div")
           .style("width", function(d) { return linearScale(parseInt(d.countof)) + "px"; })
           .text(function(d) { return d.regexp_split_to_table; });
-
-      // d3.select("body").select(".chart")
-      //   .data(count_of)
-      //   .enter()
-      //   .append("div")
-      //   .attr("class", "bar")
-      //   // .text(function(d) {
-      //   //   return d;
-      //   // })
-      //   .style("height", function(d) {
-      //       var barHeight = d / 2;
-      //       return barHeight + "px";
-      //   });
-
+          
       dataset.forEach(function(d){
         var dots2 = d3.select("#map")
           .selectAll("circle")

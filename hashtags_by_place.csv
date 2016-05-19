@@ -1,7 +1,7 @@
 user_location,regexp_split_to_table,countof
+"New York, NY",Job,4436
 "New York, NY",Hiring,3987
 "New York, NY",CareerArc,2777
-"New York, NY",Job,4436
 "New York, NY",NewYork,2168
 "New York, NY",Jobs,2109
 New York,Hiring,1008
