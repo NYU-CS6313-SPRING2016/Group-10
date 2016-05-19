@@ -123,6 +123,9 @@
 
     });
 
+
+    //bar chart
+
     d3.csv("hashtags_by_place.csv",function(error, dataset){
 
       console.log(dataset[0]);
@@ -133,19 +136,30 @@
         count_of.push(d.countof);
       });
 
-      console.log(count_of);
+      console.log(d3.min(count_of));
+      console.log(d3.max(count_of));
 
-      var x = d3.scale.linear()
+      var linearScale = d3.scale.linear()
           .domain([d3.min(count_of), d3.max(count_of)])
           .range([0, 100]);
 
-      d3.select(".chart")
-        .selectAll("div")
-          .data(dataset)
-          .enter()
-          .append("div")
-          .style("width", function(d) { return x(d.countof) + "px"; })
-          .text(function(d) { return d.regexp_split_to_table; });
+      // d3.select(".chart")
+      //   .selectAll("div")
+      //     .data(dataset)
+      //     .enter()
+      //     .append("div")
+      //     .style("width", function(d) { return linearScale(d.countof) + "px"; })
+      //     .text(function(d) { return d.regexp_split_to_table; });
+
+      d3.select("body").select(".chart")
+        .data(count_of)
+        .enter()
+        .append("div")
+        .attr("class", "bar")
+        .style("height", function(d) {
+            var barHeight = d * 5;
+            return barHeight + "px";
+        });
 
       dataset.forEach(function(d){
         var dots2 = d3.select("#map")
