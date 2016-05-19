@@ -156,7 +156,7 @@
           .append("div")
           .style("width", function(d) { return linearScale(parseInt(d.countof)) + "px"; })
           .text(function(d) { return d.regexp_split_to_table + " - " + d.countof; })
-          .style("fill", function(d,i){return color(i)});
+          .style("background-color", function(d,i){return color(i)});
 
     });
   </script>
