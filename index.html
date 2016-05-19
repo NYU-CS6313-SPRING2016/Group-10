@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="tipsy.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <style>
       body{
@@ -62,7 +61,6 @@
   <script src="http://d3js.org/topojson.v1.min.js"></script>
   <script src="nyc.geojson"></script>
   <script src="http://bl.ocks.org/mbostock/raw/4090846/us.json"></script>
-  <script type="text/javascript" src="jquery.tipsy.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
   <script>
 
@@ -182,15 +180,6 @@
           $("#bar_id_"+i).attr("background-color",this_color);
           $("#bar_id_"+i).style("border","2px solid black");
         });
-
-      $('svg circle').tipsy({ 
-        gravity: 'w', 
-        html: true, 
-        title: function() {
-          var d = this.__data__, label = hashtag_array(d.i);
-          return label; 
-        }
-      });
 
       });    
   </script>
