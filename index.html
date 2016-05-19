@@ -171,15 +171,17 @@
         .attr("cy", function (d) { return projection(d)[1]; })
         .attr("r", function(d, i){ if(i == 0){ return 22; }else {return (19+i)/i;} })
         .attr("fill", function(d,i){ return colors_google(i); })
-        .on('click',function(d,i){
-          var this_color = $("#bar_id_"+i).attr("fill");
-          console.log(this_color);
-          $(".chart div").attr("background-color","gray");
-          $("#bar_id_"+i).attr("background-color",this_color);
-          $("#bar_id_"+i).style("border","2px solid black");
-        })
         .append("svg:title")
         .text(function(d,i) { return hashtag_array[i]; });
+
+
+      d3.selectAll("circle").on('click',function(){
+          var this_color = d3.select(this).style("background-color");
+          console.log(this);
+          $(".chart div").attr("background-color","gray");
+          $("#bar_id_0").attr("background-color",this_color);
+          $("#bar_id_0").style("border","2px solid black");
+        })
         
 
       });    
