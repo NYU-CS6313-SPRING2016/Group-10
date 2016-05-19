@@ -23,6 +23,7 @@
       .right-panel{
         float: right;
         text-align: center;
+        margin-right: 60px;
       }
       .chart div {
         font: 14px sans-serif;
@@ -39,12 +40,14 @@
   </head>
   <body>
     <h1>Twitter NYC</h1>
-    <div class="left-panel">
-      <h2>From where are the trends emerging?</h2>
-    </div>
-    <div class="right-panel">
-      <h2>What are the trends?</h2>
-      <div class="chart"></div>
+    <div class="">
+      <div class="left-panel">
+        <h2>From where are the trends emerging?</h2>
+      </div>
+      <div class="right-panel">
+        <h2>What are the trends?</h2>
+        <div class="chart"></div>
+      </div>
     </div>
   </body>
 
@@ -144,7 +147,7 @@
 
       var linearScale = d3.scale.linear()
           .domain([d3.min(count_of), d3.max(count_of)])
-          .range([0, 100]);
+          .range([0, 300]);
 
       d3.select(".chart")
         .selectAll("div")
@@ -153,7 +156,7 @@
           .append("div")
           .style("width", function(d) { return linearScale(parseInt(d.countof)) + "px"; })
           .text(function(d) { return d.regexp_split_to_table; });
-          
+
       dataset.forEach(function(d){
         var dots2 = d3.select("#map")
           .selectAll("circle")
