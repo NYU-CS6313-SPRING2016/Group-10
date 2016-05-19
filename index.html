@@ -2,6 +2,7 @@
 <html>
   <head>
     <link href="tipsy.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <style>
       body{
         text-align: center;
@@ -39,7 +40,7 @@
         color: black;
       }
     </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
     <title>NYC TWITTER - DATA VISUALIZATION</title>
 
   </head>
@@ -176,10 +177,10 @@
         .text(function(d,i) { return hashtag_array[i]; })
         .on('click',function(d,i){
           var this_color = $("#bar_id_"+i).attr("fill");
-          $(".chart div").style("background-color","gray");
-          $("#bar_id_"+i).attr("fill",this_color);
+          console.log(this_color);
+          $(".chart div").attr("background-color","gray");
+          $("#bar_id_"+i).attr("background-color",this_color);
           $("#bar_id_"+i).style("border","2px solid black");
-
         });
 
       $('svg circle').tipsy({ 
