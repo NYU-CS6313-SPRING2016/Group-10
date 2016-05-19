@@ -32,6 +32,10 @@
         margin: 1px;
         color: white;
       }
+      .bar{
+        background-color: steelblue;
+        color: white;
+      }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <title>NYC TWITTER - DATA VISUALIZATION</title>
@@ -139,12 +143,12 @@
         hashtag_array.push(d.regexp_split_to_table);
       });
 
-      console.log(d3.min(count_of));
-      console.log(d3.max(count_of));
+      // console.log(d3.min(count_of));
+      // console.log(d3.max(count_of));
 
-      var linearScale = d3.scale.linear()
-          .domain([d3.min(count_of), d3.max(count_of)])
-          .range([0, 100]);
+      // var linearScale = d3.scale.linear()
+      //     .domain([d3.min(count_of), d3.max(count_of)])
+      //     .range([0, 100]);
 
       // d3.select(".chart")
       //   .selectAll("div")
