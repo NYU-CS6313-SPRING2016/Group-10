@@ -3,8 +3,8 @@
 
 **Authors**: Sahil Verma(sv1227@nyu.edu, N19032632), Manpreet Singh(ms8174@nyu.edu, N10494923)
 ## Description
-This project monitors twitter data and helps to visualize the top trends in New York city.
-
+This project monitors twitter data and helps to visualize the top trends in New York city. Returns the top 50 trending topics for a specific WOEID, if trending information is available for it.In our app we would track the location of the tweets to tell which place’s
+people are more interested in a specific thing. The location of the trend is depicted by a dot, bigger the dot grows means larger the tweets are for the particular trend.
 
 ## Links to:
 **Video**: https://youtu.be/71qWoSGq_zg
